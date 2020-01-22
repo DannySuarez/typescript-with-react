@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 
 export const Input = () => {
   // TypeScript infers a string value
@@ -6,8 +6,15 @@ export const Input = () => {
   // explicit
   // const [name, setName] = useState<string>('')
   // const [name, setName] = useState<string | null>(null)
+
+  // (null!) additional check: ref value is read only
+  const ref = useRef<HTMLInputElement>(null!);
+  // TypeScript Refs
+  if(ref && ref.current) {
+  console.log(ref.current.value);
+}
   
   return (
-    <input value={name} onChange={e => setName(e.target.value)}/>
+    <input ref={ref} value={name} onChange={e => setName(e.target.value)}/>
   )
 }
