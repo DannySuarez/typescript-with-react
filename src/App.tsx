@@ -8,9 +8,14 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <Head title="Hello"/>
-      <Button onClick={(value) => {
-        console.log(value);        
-      }} />
+      <Button
+        onClick={(e) => {
+          e.preventDefault()
+          console.log(e);        
+      }}
+      >
+        Hi
+      </Button>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
