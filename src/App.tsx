@@ -2,14 +2,14 @@ import React from 'react';
 import { Head } from './components/Head';
 import { Button } from './components/Button';
 import { Input } from './components/Input';
-import { GlobalContext, initialValues } from './components/GlobalState';
+import { GlobalProvider } from './components/GlobalState';
 import { ReducerButtons } from './components/ReducerButtons';
 import logo from './logo.svg';
 import './App.css';
 
 const App: React.FC = () => {
   return (
-    <GlobalContext.Provider value={initialValues}>
+    <GlobalProvider>
     <div className="App">
       <Head title="Hello"/>
       <Button
@@ -37,7 +37,7 @@ const App: React.FC = () => {
         </a>
       </header>
     </div>
-    </GlobalContext.Provider>
+    </GlobalProvider>
   );
 }
 
