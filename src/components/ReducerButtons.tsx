@@ -1,4 +1,5 @@
-import React, { useReducer } from 'react'
+import React, { useReducer, useRef } from 'react'
+import { useClickOutside } from './useClickOutside';
 
 const initialState = { rValue: true };
 
@@ -6,9 +7,20 @@ type State = {
   rValue: boolean
 }
 
+// explicit union
 type Action = {
-  type: string
+  type: "one" | "two";
 }
+
+// option for seperate payload options
+// type Action = { type: "one", payload: any } | { type: "two" }
+
+// for more heavy duty use of reducer with different type/payloads
+// type Action =
+//   | { type: "one" }
+//   | { type: "two" }
+//   | { type: 'tow'};
+
 
 function reducer(state: State, action: Action) {
   switch(action.type) {
@@ -22,11 +34,15 @@ function reducer(state: State, action: Action) {
 }
 
 export const ReducerButtons = () => {
-
   const [state, dispatch] = useReducer(reducer, initialState)
+  const ref = useRef<HTMLDivElement>(null!)
+
+  useClickOutside(ref, () => {
+    console.log('clicked outside')
+  })
 
   return (
-    <div>
+    <div ref={ref}>
       { state?.rValue && <h1>Visible</h1> }
       <button onClick={() => dispatch({ type: 'one'})}>Action One</button>
       <button onClick={() => dispatch({ type: 'two'})}>Action Two</button>

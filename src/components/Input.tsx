@@ -13,7 +13,7 @@ export const Input = () => {
   //optional chaiing ref?.current?
   //returns falsy value
   if(ref?.current?.value) {
-    console.log('true', ref.current)
+    console.log('true', ref.current.value)
   } else {
     console.log('made it to false statement, this is cool', ref.current)
   }
