@@ -8,10 +8,13 @@ export const initialValues = {
 
 export const GlobalContext = createContext(initialValues);
 
-type State = {
-  rValue: boolean
-}
+// type State = {
+//   rValue: boolean
+// }
 
+interface State {
+  rValue: boolean;
+}
 // explicit union
 type Action = {
   type: "one" | "two";
