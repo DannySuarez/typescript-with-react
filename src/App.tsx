@@ -4,6 +4,7 @@ import { Button } from './components/Button';
 import { Input } from './components/Input';
 import { GlobalProvider } from './components/GlobalState';
 import { ReducerButtons } from './components/ReducerButtons';
+import ClassCom from './components/ClassCom';
 import logo from './logo.svg';
 import './App.css';
 
@@ -12,6 +13,7 @@ const App: React.FC = () => {
     <GlobalProvider>
     <div className="App">
       <Head title="Hello"/>
+      <ClassCom title="I am a Class Component" />
       <Button
         onClick={(e) => {
           e.preventDefault()
